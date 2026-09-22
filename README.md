@@ -41,3 +41,12 @@ Das mitgelieferte Demo-Sample enthält nur 1'000 alphabetisch ausgewählte Zeile
 - Quelle: Our World in Data, `owid/co2-data`
 - Datensatz-Lizenz: Die einzelnen Datenfelder können Bedingungen ihrer jeweiligen Originalquellen unterliegen. Für eine Weiterveröffentlichung müssen die Angaben im OWID-Codebook geprüft werden.
 - Personenbezogene Daten: keine; die Zeilen beschreiben Länder und Jahre.
+
+
+## Mein Beitrag
+
+Ich habe die Daten bereinigt, die explorative Analyse dokumentiert, die Modelle verglichen und die strengere Ländergruppen-Validierung ergänzt.
+
+## Code-Lizenz
+
+Der Code dieses Repositories steht unter der MIT-Lizenz – siehe [LICENSE](LICENSE). Für den Datensatz gelten zusätzlich die Bedingungen der jeweiligen Originalquellen.
