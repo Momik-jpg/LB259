@@ -1,5 +1,7 @@
 # CO2 Emissions Analysis
 
+[![CI](https://github.com/Momik-jpg/LB259/actions/workflows/ci.yml/badge.svg)](https://github.com/Momik-jpg/LB259/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Dieses Schulprojekt untersucht, wie gut sich jährliche CO2-Emissionen aus Bevölkerungs-, Wirtschafts- und Energiedaten abschätzen lassen. Als Quelle dient der öffentliche [Our World in Data CO2-Datensatz](https://github.com/owid/co2-data).
 
 ## Inhalt
