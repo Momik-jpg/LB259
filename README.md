@@ -22,6 +22,16 @@ python validate_model.py
 jupyter lab
 ```
 
+## Ergebnisse
+
+### Zusammenhang zwischen BIP und CO₂
+
+![Regressionsdarstellung von BIP und CO₂-Emissionen](plots/gdp_vs_co2_regression.png)
+
+### Modellvorhersagen
+
+![Vergleich von Modellvorhersagen und tatsächlichen Werten](plots/model_predictions.png)
+
 ## Methodik
 
 Die ursprünglichen Notebooks verwenden einen zufälligen Zeilen-Split. Das ist für eine erste Schulabgabe verständlich, kann aber Informationen desselben Landes auf Training und Test verteilen. `validate_model.py` verwendet deshalb drei getrennte Mengen:
