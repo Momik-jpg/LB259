@@ -23,7 +23,7 @@ def load_data(data_path: Path = DATA_PATH) -> tuple[np.ndarray, np.ndarray, np.n
     targets: list[float] = []
     countries: list[str] = []
 
-    with data_path.open(encoding="utf-8", newline="") as source:
+    with data_path.open(encoding="utf-8-sig", newline="") as source:
         for row in csv.DictReader(source):
             country = (row.get("country") or "").strip()
             if not country:
