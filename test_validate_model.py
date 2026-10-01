@@ -9,13 +9,13 @@ from validate_model import FEATURES, TARGET, load_data, split_by_country
 
 
 class DataLoadingTests(unittest.TestCase):
-    def load_rows(self, rows, include_country=True):
+    def load_rows(self, rows, include_country=True, encoding="utf-8"):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "sample.csv"
             fields = [*FEATURES, TARGET]
             if include_country:
                 fields.insert(0, "country")
-            with path.open("w", encoding="utf-8", newline="") as output:
+            with path.open("w", encoding=encoding, newline="") as output:
                 writer = csv.DictWriter(output, fieldnames=fields)
                 writer.writeheader()
                 writer.writerows(rows)
@@ -37,6 +37,13 @@ class DataLoadingTests(unittest.TestCase):
         self.assertEqual(len(y), 6)
         self.assertNotIn(999, y)
         self.assertEqual(len(set(countries)), 6)
+
+    def test_utf8_bom_export_matches_plain_utf8(self):
+        rows = self.valid_rows()
+        plain = self.load_rows(rows)
+        exported = self.load_rows(rows, encoding="utf-8-sig")
+        for expected, actual in zip(plain, exported):
+            np.testing.assert_array_equal(actual, expected)
 
     def test_country_whitespace_does_not_create_extra_groups(self):
         rows = self.valid_rows()[:5]
