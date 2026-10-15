@@ -18,13 +18,16 @@ TARGET = "co2"
 RANDOM_STATE = 42
 
 
-def load_data() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+def load_data(data_path: Path = DATA_PATH) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     features: list[list[float]] = []
     targets: list[float] = []
     countries: list[str] = []
 
-    with DATA_PATH.open(encoding="utf-8", newline="") as source:
+    with data_path.open(encoding="utf-8-sig", newline="") as source:
         for row in csv.DictReader(source):
+            country = (row.get("country") or "").strip()
+            if not country:
+                continue
             try:
                 values = [float(row[name]) for name in FEATURES]
                 target = float(row[TARGET])
@@ -34,7 +37,7 @@ def load_data() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
                 continue
             features.append(values)
             targets.append(target)
-            countries.append(row["country"])
+            countries.append(country)
 
     if len(set(countries)) < 6:
         raise ValueError("At least six countries are required for grouped validation.")

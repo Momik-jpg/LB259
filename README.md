@@ -22,6 +22,16 @@ python validate_model.py
 jupyter lab
 ```
 
+## Automatisierte Prüfungen
+
+```shell
+python -m unittest discover -v
+```
+
+Die Tests prüfen fehlende Ländernamen, numerisch ungültige Zeilen und die vollständige, reproduzierbare Trennung der Ländergruppen. Zeilen ohne Ländernamen werden übersprungen; Leerzeichen am Rand werden entfernt, damit dasselbe Land nicht in mehreren Gruppen landet. Die CI führt die Tests vor dem Modellvergleich aus.
+
+Unter Linux und macOS wird die virtuelle Umgebung mit `source .venv/bin/activate` aktiviert. Die übrigen Python-Befehle bleiben gleich.
+
 ## Ergebnisse
 
 ### Zusammenhang zwischen BIP und CO₂
